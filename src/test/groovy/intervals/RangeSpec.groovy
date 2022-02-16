@@ -1,5 +1,6 @@
 package intervals
 
+import intervals.printer.Range
 import spock.lang.Specification
 
 class RangeSpec extends Specification {

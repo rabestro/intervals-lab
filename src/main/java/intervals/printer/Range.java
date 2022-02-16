@@ -1,4 +1,4 @@
-package intervals;
+package intervals.printer;
 
 public record Range(int first, int last) {
 

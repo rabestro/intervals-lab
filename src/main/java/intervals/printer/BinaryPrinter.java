@@ -1,4 +1,4 @@
-package intervals;
+package intervals.printer;
 
 
 import java.util.ArrayDeque;

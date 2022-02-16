@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
     // Spock Framework
     testImplementation 'org.spockframework:spock-core'
     testImplementation platform('org.codehaus.groovy:groovy-bom:3.0.9')
