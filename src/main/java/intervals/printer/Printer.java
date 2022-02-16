@@ -1,4 +1,4 @@
-package intervals;
+package intervals.printer;
 
 @FunctionalInterface
 public interface Printer {
