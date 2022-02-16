@@ -44,7 +44,7 @@ public class BinaryPrinter implements Printer {
 
         if (isConnectable) {
             var a = leftRanges.pollLast().first();
-            var b = rightRanges.pollLast().last();
+            var b = rightRanges.pollFirst().last();
             var combinedInterval = new Range(a, b);
             leftRanges.add(combinedInterval);
         }
