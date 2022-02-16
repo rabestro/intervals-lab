@@ -20,12 +20,33 @@ public class X1 implements Printer {
         var sequence = new ArrayDeque<Range>();
         var firstNumber = numbers[i0];
         var lastNumber = numbers[i1];
-        var sequenceLength = i1 - i0;
-        if (lastNumber - firstNumber == sequenceLength) {
+        var isSequenceContinues = lastNumber - firstNumber == i1 - i0;
+
+        if (isSequenceContinues) {
             sequence.add(new Range(firstNumber, lastNumber));
             return sequence;
         }
 
-        return sequence;
+        var sequenceLength = i1 - i0 + 1;
+
+        if (sequenceLength == 2) {
+            sequence.add(new Range(firstNumber));
+            sequence.add(new Range(lastNumber));
+            return sequence;
+        }
+
+        var median = i0 + (sequenceLength - 1) / 2;
+
+        var leftRanges = getRanges(numbers, i0, median);
+        var rightRanges = getRanges(numbers, median + 1, i1);
+
+        var isConnectable = rightRanges.getFirst().first() - leftRanges.getLast().last() == 1;
+
+        if (isConnectable) {
+            var combinedInterval = new Range(leftRanges.pollLast().first(), rightRanges.pollLast().last());
+            leftRanges.add(combinedInterval);
+        }
+        leftRanges.addAll(rightRanges);
+        return leftRanges;
     }
 }
