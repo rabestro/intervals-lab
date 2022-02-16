@@ -2,7 +2,7 @@ package intervals
 
 import spock.lang.Specification
 
-class X1Test extends Specification {
+class BinaryPrinterTest extends Specification {
     void setup() {
     }
 
@@ -11,7 +11,7 @@ class X1Test extends Specification {
 
     def 'should print intervals for array of numbers'() {
         given:
-        def printer = new X1()
+        def printer = new BinaryPrinter()
 
         when:
         def output = printer.print numbers as int[]

@@ -6,7 +6,7 @@ import java.util.Deque;
 
 import static java.util.stream.Collectors.joining;
 
-public class X1 implements Printer {
+public class BinaryPrinter implements Printer {
 
     public String print(int[] numbers) {
         if (numbers == null || numbers.length == 0) {
@@ -43,7 +43,9 @@ public class X1 implements Printer {
         var isConnectable = rightRanges.getFirst().first() - leftRanges.getLast().last() == 1;
 
         if (isConnectable) {
-            var combinedInterval = new Range(leftRanges.pollLast().first(), rightRanges.pollLast().last());
+            var a = leftRanges.pollLast().first();
+            var b = rightRanges.pollLast().last();
+            var combinedInterval = new Range(a, b);
             leftRanges.add(combinedInterval);
         }
         leftRanges.addAll(rightRanges);
