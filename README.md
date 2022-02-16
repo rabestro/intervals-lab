@@ -1,16 +1,5 @@
 ## Speed Test
 
-### 10_000_000 / 100_000 / 50
-
-    BinaryPrinter: 00:00:00.065
-    SimplePrinter: 00:00:01.275
-
-    BinaryPrinter: 00:00:00.066
-    SimplePrinter: 00:00:01.252
-    
-    BinaryPrinter: 00:00:00.082
-    SimplePrinter: 00:00:01.307
-
 ### 10_000_000 / 1_000_000 / 50
 
     BinaryPrinter: 00:00:00.026
@@ -21,6 +10,17 @@
     
     BinaryPrinter: 00:00:00.032
     SimplePrinter: 00:00:00.545
+
+### 10_000_000 / 100_000 / 50
+
+    BinaryPrinter: 00:00:00.065
+    SimplePrinter: 00:00:01.275
+
+    BinaryPrinter: 00:00:00.066
+    SimplePrinter: 00:00:01.252
+    
+    BinaryPrinter: 00:00:00.082
+    SimplePrinter: 00:00:01.307
 
 ### 10_000_000 / 10_000 / 50
 
