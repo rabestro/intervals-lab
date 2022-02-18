@@ -1,22 +1,22 @@
 package intervals;
 
 import intervals.printer.BinaryPrinter;
+import intervals.printer.LinearPrinter;
 import intervals.printer.Printer;
 import intervals.printer.SimplePrinter;
 import org.apache.commons.lang3.time.StopWatch;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        var dataProvider = new NumbersProvider(10_000_000, 100_000);
-        var binaryPrinter = new BinaryPrinter();
-        var simplePrinter = new SimplePrinter();
+        var dataProvider = new NumbersProvider(10_000_000, 1_000_000);
 
-        var tester = new TestPrinter(dataProvider);
+        var printers = List.of(new SimplePrinter(), new LinearPrinter(), new BinaryPrinter());
 
-        tester.prepare(50);
+        var tester = new TestPrinter(dataProvider).generateRounds(50);
 
-        tester.test(binaryPrinter);
-        tester.test(simplePrinter);
+        printers.forEach(tester::test);
     }
 }
 
@@ -29,7 +29,7 @@ class TestPrinter {
         numbersProvider = testDataProvider;
     }
 
-    void prepare(int rounds) {
+    TestPrinter generateRounds(int rounds) {
         timer.start();
         testData = new int[rounds][];
         for (int i = 0; i < rounds; ++i) {
@@ -38,6 +38,7 @@ class TestPrinter {
         timer.stop();
         System.out.println("Generated: " + timer.formatTime());
         System.out.println();
+        return this;
     }
 
     void test(Printer printer) {
