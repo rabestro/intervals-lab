@@ -1,6 +1,7 @@
 package intervals
 
 import intervals.printer.BinaryPrinter
+import intervals.printer.LinearPrinter
 import intervals.printer.SimplePrinter
 import spock.lang.Specification
 
@@ -14,14 +15,10 @@ class PrintersTest extends Specification {
 
     def 'should print intervals for array of numbers'() {
         given:
-        def binaryPrinter = new BinaryPrinter()
-        and:
-        def simplePrinter = new SimplePrinter()
+        def printers = [new BinaryPrinter(), new SimplePrinter(), new LinearPrinter()]
 
         expect:
-        binaryPrinter.print(numbers as int[]) == expectedOutput
-        and:
-        simplePrinter.print(numbers as int[]) == expectedOutput
+        printers.every { it.print(numbers as int[]) == expectedOutput }
 
         where:
         numbers                                              | expectedOutput
